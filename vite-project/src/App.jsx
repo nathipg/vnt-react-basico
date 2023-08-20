@@ -1,4 +1,4 @@
-import { Cabecalho } from './components';
+import { Cabecalho, Rodape } from './components';
 
 const App = () => {
   return (
@@ -8,10 +8,9 @@ const App = () => {
       <Cabecalho nomeUsuario="Apollo" />
       <Cabecalho nomeUsuario="Lilly" />
       <Cabecalho nomeUsuario="Scully" />
+      <Rodape criador="Pissuti" />
     </>
   )
 };
 
-export {
-  App,
-};
+export { App };
