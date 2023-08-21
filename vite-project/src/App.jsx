@@ -1,15 +1,16 @@
-import { Cabecalho, Rodape } from './components';
+import { Cabecalho, Conteudo, Rodape } from './components';
+
+import style from './App.module.css';
 
 const App = () => {
   return (
-    <>
-      <h1>Hello World</h1>
+    <div className={style.App}>
       <Cabecalho nomeUsuario="Joana" />
-      <Cabecalho nomeUsuario="Apollo" />
-      <Cabecalho nomeUsuario="Lilly" />
-      <Cabecalho nomeUsuario="Scully" />
+      <Conteudo>
+        <p>Conteudo aqui</p>
+      </Conteudo>
       <Rodape criador="Pissuti" />
-    </>
+    </div>
   )
 };
 

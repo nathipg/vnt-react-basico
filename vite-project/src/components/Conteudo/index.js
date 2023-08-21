@@ -1,0 +1,1 @@
+export { Conteudo } from './Conteudo';
