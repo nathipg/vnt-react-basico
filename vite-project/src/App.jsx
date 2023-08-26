@@ -5,7 +5,7 @@ import style from './App.module.css';
 const App = () => {
   return (
     <div className={style.App}>
-      <Cabecalho nomeUsuario="Joana" />
+      <Cabecalho />
       <Conteudo>
         <p>Conteudo aqui</p>
       </Conteudo>
