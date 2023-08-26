@@ -1,9 +1,12 @@
-const Cabecalho = (props) => {
-  const { nomeUsuario } = props;
+import style from './Cabecalho.module.css';
 
+const Cabecalho = () => {
   return (
-    <div>
-      Bem-vindo(a), {nomeUsuario}
+    <div className={style.Cabecalho}>
+      <h1>
+        <span>ToDo </span>
+        List
+      </h1>
     </div>
   );
 };

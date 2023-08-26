@@ -1,1 +1,1 @@
-export { Cabecalho } from './Cabecalho';
+export * from './Cabecalho';

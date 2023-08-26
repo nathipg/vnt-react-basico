@@ -1,1 +1,1 @@
-export { Rodape } from './Rodape';
+export * from './Rodape';
