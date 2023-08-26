@@ -1,3 +1,4 @@
+import { Inicial } from './pages';
 import { Cabecalho, Conteudo, Rodape } from './components';
 
 import style from './App.module.css';
@@ -7,7 +8,7 @@ const App = () => {
     <div className={style.App}>
       <Cabecalho />
       <Conteudo>
-        <p>Conteudo aqui</p>
+        <Inicial />
       </Conteudo>
       <Rodape criador="Pissuti" />
     </div>
