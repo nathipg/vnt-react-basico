@@ -1,7 +1,9 @@
+import { FormCriarTarefa } from '../../components';
+
 const Inicial = () => {
   return (
     <div>
-      Inicial
+      <FormCriarTarefa />
     </div>
   );
 };
