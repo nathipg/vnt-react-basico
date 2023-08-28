@@ -1,6 +1,5 @@
 .Botao {
   padding: 0.25rem 0.75rem;
-  background: var(--verde);
   border: 1px solid black;
   color: var(--cinza);
   font-weight: bold;
@@ -9,4 +8,12 @@
 
 .Botao:hover {
   filter: brightness(1.1);
+}
+
+.Botao[tipo="primario"] {
+  background: var(--verde);
+}
+
+.Botao[tipo="secundario"] {
+  background: var(--rosa);
 }
