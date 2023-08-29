@@ -1,15 +1,13 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+
+import { api } from '../services';
 
 export const AppContext = createContext({});
 
 export const AppContextProvider = (props) => {
   const { children } = props;
 
-  const [tarefas, setTarefas] = useState([
-    { id: 1, nome: 'Item 1' },
-    { id: 2, nome: 'Item 2' },
-    { id: 3, nome: 'Item 3' },
-  ]);
+  const [tarefas, setTarefas] = useState([]);
 
   const adicionarTarefa = (nomeTarefa) => {
     setTarefas((estadoAtual) => {
@@ -34,6 +32,15 @@ export const AppContextProvider = (props) => {
       ];
     });
   };
+
+  const carregarTarefas = async () => {
+    const { data = [] } = await api.get('/tarefas');
+    setTarefas(data);
+  };
+
+  useEffect(() => {
+    carregarTarefas();
+  }, []);
 
   return (
     <AppContext.Provider 
