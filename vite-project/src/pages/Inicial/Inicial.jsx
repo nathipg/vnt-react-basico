@@ -13,7 +13,7 @@ const Inicial = () => {
 
   return (
     <div className={style.Inicial}>
-      <FormCriarTarefa tarefas={tarefas} />
+      <FormCriarTarefa setTarefas={setTarefas} />
       <ListaTarefas tarefas={tarefas} />
     </div>
   );
