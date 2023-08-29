@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
 import { Botao, CampoTexto } from '../../components';
+import { useAppContext } from '../../hooks';
 
 import style from './FormCriarTarefa.module.css';
 
-const FormCriarTarefa = (props) => {
-  const { setTarefas } = props;
+const FormCriarTarefa = () => {
+  const { adicionarTarefa } = useAppContext();
 
   const [nomeTarefa, setNomeTarefa] = useState('');
 
@@ -20,17 +21,7 @@ const FormCriarTarefa = (props) => {
       return;
     }
 
-    setTarefas((estadoAtual) => {
-      const tarefa = {
-        id: estadoAtual.length + 1,
-        nome: nomeTarefa,
-      };
-
-      return [
-        ...estadoAtual,
-        tarefa,
-      ];
-    });
+    adicionarTarefa(nomeTarefa);
 
     setNomeTarefa('');
   };

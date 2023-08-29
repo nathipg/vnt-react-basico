@@ -1,13 +1,12 @@
-import { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { AppContext } from '../../contexts';
 import { Cabecalho, Conteudo, Rodape } from '../../components';
+import { useAppContext } from '../../hooks';
 
 import style from './LayoutPadrao.module.css';
 
 const LayoutPadrao = () => {
-  const { nomeUsuario } = useContext(AppContext);
+  const { nomeUsuario } = useAppContext();
 
   return (
     <div className={style.LayoutPadrao}>
