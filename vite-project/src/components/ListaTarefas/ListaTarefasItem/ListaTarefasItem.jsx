@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Botao, CampoTexto, TIPO_BOTAO } from '../../../components';
+import { Botao, CampoTexto, Loading, TIPO_BOTAO } from '../../../components';
 import { useAppContext } from '../../../hooks';
 
 import style from './ListaTarefasItem.module.css';
@@ -8,7 +8,7 @@ import style from './ListaTarefasItem.module.css';
 const ListaTarefasItem = (props) => {
   const { id, nome } = props;
 
-  const { editarTarefa, removerTarefa } = useAppContext();
+  const { editarTarefa, removerTarefa, loadingEditarTarefa, loadingRemoverTarefa } = useAppContext();
 
   const [estaEditando, setEstaEditando] = useState(false);
 
@@ -22,16 +22,25 @@ const ListaTarefasItem = (props) => {
     setEstaEditando(false);
   };
 
+  const temRemocaoPendente = loadingRemoverTarefa == id;
+  const temEdicaoPendente = loadingEditarTarefa == id;
+
   return (
     <li className={style.ListaTarefasItem}>
-      {estaEditando && (
+      {(estaEditando || temEdicaoPendente) && (
         <CampoTexto defaultValue={nome} onBlur={onBlurEditarTarefa} autoFocus />
       )}
-      {!estaEditando && (
+
+      {!temEdicaoPendente && !estaEditando && (
           <strong onDoubleClick={() => setEstaEditando(true)}>{nome}</strong>
       )}
+
+      {temEdicaoPendente && (
+        <Loading />
+      )}
+      
       <Botao
-        texto="-"
+        texto={temRemocaoPendente ? <Loading /> : '-'}
         tipo={TIPO_BOTAO.SECUNDARIO}
         onClick={() => removerTarefa(id)}
       />

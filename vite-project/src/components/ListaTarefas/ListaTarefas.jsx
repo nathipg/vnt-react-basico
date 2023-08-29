@@ -1,3 +1,4 @@
+import { Loading } from '../../components';
 import { useAppContext } from '../../hooks';
 
 import { ListaTarefasItem } from './ListaTarefasItem';
@@ -5,11 +6,18 @@ import { ListaTarefasItem } from './ListaTarefasItem';
 import style from './ListaTarefas.module.css';
 
 const ListaTarefas = () => {
-  const { tarefas } = useAppContext();
+  const { tarefas, loadingCarregarTarefas } = useAppContext();
 
   return (
     <ul className={style.ListaTarefas}>
-      {!tarefas.length && (
+      {loadingCarregarTarefas && (
+        <p>
+          Carregando... 
+          <Loading />
+        </p>
+      )}
+
+      {!loadingCarregarTarefas && !tarefas.length && (
         <p>A lista está vazia</p>
       )}
       
