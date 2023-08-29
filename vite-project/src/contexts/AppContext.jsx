@@ -9,13 +9,12 @@ export const AppContextProvider = (props) => {
 
   const [tarefas, setTarefas] = useState([]);
 
-  const adicionarTarefa = (nomeTarefa) => {
-    setTarefas((estadoAtual) => {
-      const tarefa = {
-        id: estadoAtual.length + 1,
-        nome: nomeTarefa,
-      };
+  const adicionarTarefa = async (nomeTarefa) => {
+    const { data: tarefa } = await api.post('/tarefas', {
+      nome: nomeTarefa,
+    });
 
+    setTarefas((estadoAtual) => {
       return [
         ...estadoAtual,
         tarefa,
@@ -23,7 +22,9 @@ export const AppContextProvider = (props) => {
     });
   };
 
-  const removerTarefa = (idTarefa) => {
+  const removerTarefa = async (idTarefa) => {
+    await api.delete(`/tarefas/${idTarefa}`);
+    
     setTarefas((estadoAtual) => {
       const tarefasAtualizadas = estadoAtual.filter((tarefa) => tarefa.id != idTarefa);
       

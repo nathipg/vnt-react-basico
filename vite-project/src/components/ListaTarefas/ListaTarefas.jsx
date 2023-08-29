@@ -9,6 +9,10 @@ const ListaTarefas = () => {
 
   return (
     <ul className={style.ListaTarefas}>
+      {!tarefas.length && (
+        <p>A lista está vazia</p>
+      )}
+      
       {tarefas.map(tarefa => (
         <ListaTarefasItem 
           key={tarefa.id} 
