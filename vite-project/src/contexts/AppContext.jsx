@@ -25,12 +25,23 @@ export const AppContextProvider = (props) => {
     });
   };
 
+  const removerTarefa = (idTarefa) => {
+    setTarefas((estadoAtual) => {
+      const tarefasAtualizadas = estadoAtual.filter((tarefa) => tarefa.id != idTarefa);
+      
+      return [
+        ...tarefasAtualizadas,
+      ];
+    });
+  };
+
   return (
     <AppContext.Provider 
       value={{
         nomeUsuario: 'Pissuti',
         tarefas,
         adicionarTarefa,
+        removerTarefa,
       }}
     >
       {children}

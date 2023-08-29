@@ -9,7 +9,13 @@ const ListaTarefas = () => {
 
   return (
     <ul className={style.ListaTarefas}>
-      {tarefas.map(tarefa => <ListaTarefasItem key={tarefa.id} nome={tarefa.nome} />)}
+      {tarefas.map(tarefa => (
+        <ListaTarefasItem 
+          key={tarefa.id} 
+          id={tarefa.id} 
+          nome={tarefa.nome} 
+        />
+      ))}
     </ul>
   );
 };
