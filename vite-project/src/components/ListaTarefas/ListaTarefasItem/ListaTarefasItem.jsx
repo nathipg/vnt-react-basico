@@ -1,11 +1,14 @@
+import { Botao, TIPO_BOTAO } from '../../../components';
+
 import style from './ListaTarefasItem.module.css';
 
 const ListaTarefasItem = (props) => {
-  const { children } = props;
+  const { nome } = props;
 
   return (
     <li className={style.ListaTarefasItem}>
-      {children}
+      <strong>{nome}</strong>
+      <Botao texto="-" tipo={TIPO_BOTAO.SECUNDARIO} />
     </li>
   );
 };
