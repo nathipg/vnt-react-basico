@@ -34,8 +34,12 @@ export const AppContextProvider = (props) => {
     });
   };
 
-  const editarTarefa = (tarefa) => {
+  const editarTarefa = async (tarefa) => {
     const { id, nome } = tarefa;
+
+    await api.put(`/tarefas/${id}`, {
+      nome,
+    });
 
     setTarefas((estadoAtual) => {
       const tarefasAtualizadas = estadoAtual.map((tarefa) => {
@@ -44,7 +48,7 @@ export const AppContextProvider = (props) => {
           nome: nome,
         } : tarefa;
       });
-      
+
       return [...tarefasAtualizadas];
     });
   };
