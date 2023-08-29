@@ -1,17 +1,12 @@
-import { Inicial } from './pages';
-import { Cabecalho, Conteudo, Rodape } from './components';
+import { BrowserRouter } from 'react-router-dom';
 
-import style from './App.module.css';
+import { Router } from './Router';
 
 const App = () => {
   return (
-    <div className={style.App}>
-      <Cabecalho />
-      <Conteudo>
-        <Inicial />
-      </Conteudo>
-      <Rodape criador="Pissuti" />
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 };
 
