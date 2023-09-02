@@ -32,7 +32,7 @@ const ListaTarefasItem = (props) => {
       )}
 
       {!temEdicaoPendente && !estaEditando && (
-          <strong onDoubleClick={() => setEstaEditando(true)}>{nome}</strong>
+          <span onDoubleClick={() => setEstaEditando(true)}>{nome}</span>
       )}
 
       {temEdicaoPendente && (
