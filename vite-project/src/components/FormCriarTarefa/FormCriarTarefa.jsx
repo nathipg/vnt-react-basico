@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import { Botao, CampoTexto } from '../../components';
+import { Botao, CampoTexto, Loading } from '../../components';
 import { useAppContext } from '../../hooks';
 
 import style from './FormCriarTarefa.module.css';
 
 const FormCriarTarefa = () => {
-  const { adicionarTarefa } = useAppContext();
+  const { adicionarTarefa, loadingCriar } = useAppContext();
 
   const [ nomeTarefa, setNomeTarefa ] = useState('');
 
@@ -32,7 +32,7 @@ const FormCriarTarefa = () => {
         value={nomeTarefa} 
         onChange={onChangeNomeTarefa} 
       />
-      <Botao texto="+" />
+      <Botao texto={loadingCriar ? <Loading /> : '+'} />
     </form>
   );
 };
